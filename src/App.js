@@ -22,6 +22,8 @@ function App() {
     };
     if (title === "" && content === "") alert("형식을 채워주세요");
     else setTodo([...todo, newTodo]);
+    setTitle("");
+    setContent("");
   };
 
   //할일 삭제 기능
@@ -32,6 +34,28 @@ function App() {
   //끝난 일 삭제 기능
   const deleteDoneHandler = (id) => {
     setDoneTodo(doneTodo.filter((item) => item.id !== id));
+  };
+
+  //할 일 완료하기 기능
+  const doneTodoHandler = (item) => {
+    const newDoneTodo = {
+      id: item.id,
+      title: item.title,
+      content: item.content,
+    };
+    setDoneTodo([...doneTodo, newDoneTodo]);
+    setTodo(todo.filter((i) => i.id !== item.id));
+  };
+
+  // 끝난 일 진행 중으로 상태 바꾸기 기능
+  const doneResetHandler = (item) => {
+    const newTodo = {
+      id: item.id,
+      title: item.title,
+      content: item.content,
+    };
+    setTodo([...todo, newTodo]);
+    setDoneTodo(doneTodo.filter((i) => i.id !== item.id));
   };
 
   return (
@@ -70,6 +94,7 @@ function App() {
                 title={todoItem.title}
                 content={todoItem.content}
                 firstBtnHandler={deleteTodoHandler}
+                secondBtnHandler={doneTodoHandler}
                 firstBtn="삭제하기"
                 secondBtn="완료하기"
               />
@@ -87,9 +112,10 @@ function App() {
                   key={doneTodoItem.id}
                   title={doneTodoItem.title}
                   content={doneTodoItem.content}
+                  firstBtnHandler={deleteDoneHandler}
+                  secondBtnHandler={doneResetHandler}
                   firstBtn="삭제하기"
                   secondBtn="취소하기"
-                  firstBtnHandler={deleteDoneHandler}
                 />
               );
             })}
@@ -107,7 +133,7 @@ function Todo(props) {
       <p className="title">{title}</p>
       <p className="content">{content}</p>
       <button onClick={() => props.firstBtnHandler(todo.id)}>{firstBtn}</button>
-      <button>{secondBtn}</button>
+      <button onClick={() => props.secondBtnHandler(todo)}>{secondBtn}</button>
     </div>
   );
 }
