@@ -2,7 +2,41 @@
   margin: 0 auto;
   max-width: 1200px;
   min-width: 800px;
-  background-color: aliceblue;
+  border: 3px solid rgba(160, 187, 148, 0.919);
+  padding: 30px;
+}
+
+.input-wrpper {
+  background-color: rgba(160, 187, 148, 0.919);
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.input-wrpper > input {
+  width: 300px;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+}
+
+.input-wrpper > span {
+  font-size: 20px;
+}
+
+.inputBtn {
+  width: 80px;
+  height: 50px;
+  background-color: rgb(235, 224, 203);
+  border-radius: 10px;
+  border: none;
+  font-size: 17px;
+}
+
+.inputBtn:hover {
+  background-color: rgb(232, 207, 162);
 }
 
 .todo-lists {
@@ -13,13 +47,31 @@
 }
 
 .todo-box {
-  border: 1px solid brown;
+  border: 1px solid rgba(160, 187, 148, 0.919);
   border-radius: 10px;
   width: 200px;
   height: 200px;
+  padding: 10px;
 }
 
 .title {
   font-size: 25px;
   font-weight: bold;
+}
+
+.first-btn {
+  background-color: rgb(236, 236, 203);
+  width: 70px;
+  height: 30px;
+  border: none;
+  margin-left: 20px;
+  margin-top: 25px;
+}
+
+.second-btn {
+  background-color: rgb(241, 208, 145);
+  width: 70px;
+  height: 30px;
+  border: none;
+  margin-left: 7px;
 }

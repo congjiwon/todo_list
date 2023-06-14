@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Todo from "./components/Todo";
 import "./App.css";
 
 function App() {
@@ -26,17 +27,17 @@ function App() {
     setContent("");
   };
 
-  //할일 삭제 기능
+  //todo 삭제
   const deleteTodoHandler = (id) => {
     setTodo(todo.filter((item) => item.id !== id));
   };
 
-  //끝난 일 삭제 기능
+  //done 삭제
   const deleteDoneHandler = (id) => {
     setDoneTodo(doneTodo.filter((item) => item.id !== id));
   };
 
-  //할 일 완료하기 기능
+  //todo -> done
   const doneTodoHandler = (item) => {
     const newDoneTodo = {
       id: item.id,
@@ -47,7 +48,7 @@ function App() {
     setTodo(todo.filter((i) => i.id !== item.id));
   };
 
-  // 끝난 일 진행 중으로 상태 바꾸기 기능
+  // done -> todo
   const doneResetHandler = (item) => {
     const newTodo = {
       id: item.id,
@@ -61,7 +62,7 @@ function App() {
   return (
     <div className="layout">
       <div className="input-wrpper">
-        제목
+        <span>제목</span>
         <input
           type="text"
           value={title}
@@ -71,8 +72,7 @@ function App() {
             setTitle(event.target.value);
           }}
         />
-        <br />
-        내용
+        <span>내용</span>
         <input
           type="text"
           value={content}
@@ -80,8 +80,9 @@ function App() {
             setContent(event.target.value);
           }}
         />
-        <br />
-        <button onClick={addTodoHandler}>추가하기</button>
+        <button className="inputBtn" onClick={addTodoHandler}>
+          추가하기
+        </button>
       </div>
       <div className="todo-container">
         <h1> 📝 In progress</h1>
@@ -126,15 +127,4 @@ function App() {
   );
 }
 
-function Todo(props) {
-  const { todo, title, content, firstBtn, secondBtn } = props;
-  return (
-    <div className="todo-box">
-      <p className="title">{title}</p>
-      <p className="content">{content}</p>
-      <button onClick={() => props.firstBtnHandler(todo.id)}>{firstBtn}</button>
-      <button onClick={() => props.secondBtnHandler(todo)}>{secondBtn}</button>
-    </div>
-  );
-}
 export default App;
