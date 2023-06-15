@@ -17,7 +17,7 @@ function App() {
   //할일 추가 기능
   const addTodoHandler = () => {
     const newTodo = {
-      id: todo.length + 1,
+      id: todo.length + doneTodo.length + 1,
       title: title,
       content: content,
     };
