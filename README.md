@@ -1,3 +1,20 @@
+
+
+<p align="center">
+  <img src="https://github.com/congjiwon/todo_list/assets/133563434/2ab089a1-ab6d-49a1-9c33-223ac32c97d2">
+</p>
+
+# 기능 설명
+
+- todo 추가
+- 진행중인 todo 완료 시, done 상태로 바꾸기
+- 각 상태로의 전환, 삭제
+
+# 컴포넌트
+- App.js
+- Todo.jsx
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
